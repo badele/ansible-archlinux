@@ -19,6 +19,7 @@
     dest: /etc/lightdm/lightdm.conf
 
 - name: lightdm | enable ligthdm service
+  become: true
   service:
     name: lightdm
     enabled: yes
