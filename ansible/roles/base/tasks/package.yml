@@ -1,0 +1,17 @@
+---
+
+- name: package | update packages cache
+  become: true
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: package | installation
+  aur:
+    use: yay
+    name: "{{ packages.install }}"
+  register: task_result
+  until: task_result is success
+  retries: "{{ ansible_retries }}"
+  delay: "{{ ansible_delay }}"
+  when: packages.install is defined

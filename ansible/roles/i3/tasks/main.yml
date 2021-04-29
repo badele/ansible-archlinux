@@ -1,0 +1,45 @@
+---
+
+- name: i3 | Install i3 packages
+  aur:
+    use: yay
+    name:
+    # Xorg
+    - xorg
+    - xorg-xinit
+    - xterm
+    - polkit-gnome
+    - network-manager-applet
+    - xfce4-power-manager
+    - xautolock
+    - dunst
+    - libnotify
+    - picom
+    - clipit
+    # Terminal
+    - termite
+    # i3
+    - i3-gaps
+    - i3lock
+    - i3exit
+    - i3-scrot
+    - polybar
+    - rofi
+    - papirus-icon-theme
+    - nerd-fonts-noto-sans-mono
+    # Themes
+    - wpgtk-git
+    - colorz
+    # Misc
+    - playerctl
+
+  register: task_result
+  until: task_result is success
+  retries: "{{ ansible_retries }}"
+  delay: "{{ ansible_delay }}"
+  when: packages.install is defined
+
+
+# Execute only if /home/{{ user.name }}/.config/i3/config file not exists
+- name: i3 | init some config files from wpg template
+  command: /home/{{ user.name }}/.local/bin/set-color-scheme-from-image creates=/home/{{ user.name }}/.config/i3/config

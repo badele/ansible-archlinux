@@ -1,0 +1,21 @@
+---
+
+- name: kernel | configure mkinitcpio binaries
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/mkinitcpio.conf
+    state: present
+    regexp: "^BINARIES="
+    line: "BINARIES=({{system.kernel_binaries}})"
+  notify:
+    - update kernel
+
+- name: kernel | configure mkinitcpio hooks
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/mkinitcpio.conf
+    state: present
+    regexp: "^HOOKS="
+    line: "HOOKS=({{system.kernel_hooks}})"
+  notify:
+    - update kernel

@@ -1,0 +1,9 @@
+---
+
+- name: update kernel
+  become: true
+  command: "mkinitcpio -p linux"
+
+- name: update grub
+  become: true
+  command: "grub-mkconfig -o /boot/grub/grub.cfg"

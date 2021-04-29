@@ -1,0 +1,25 @@
+---
+
+- name: lightdm | install lightdm packages
+  aur:
+    use: yay
+    name:
+    - lightdm
+    - lightdm-slick-greeter
+  register: task_result
+  until: task_result is success
+  retries: "{{ ansible_retries }}"
+  delay: "{{ ansible_delay }}"
+
+
+- name: lightdm | set configuration
+  become: true
+  template:
+    src: lightdm.conf.j2
+    dest: /etc/lightdm/lightdm.conf
+
+- name: lightdm | enable ligthdm service
+  service:
+    name: lightdm
+    enabled: yes
+    state: started

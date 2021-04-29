@@ -1,0 +1,23 @@
+---
+
+- name: dotfiles | yadm dotfiles manager
+  aur:
+    use: yay
+    name:
+    - yadm-git
+  register: task_result
+  until: task_result is success
+  retries: "{{ ansible_retries }}"
+  delay: "{{ ansible_delay }}"
+
+- name: dotfiles | check dotfiles already cloned.
+  become: true
+  stat:
+    path: /home/{{ user.name }}/.local/share/yadm/repo.git
+  register: dotfiles
+
+- name: dotfiles | clone dotfiles project
+  command: "yadm clone {{ user.dotfiles }}"
+  become: true
+  become_user: "{{ user.name }}"
+  when: not dotfiles.stat.exists

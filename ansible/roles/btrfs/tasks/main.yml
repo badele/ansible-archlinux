@@ -1,0 +1,27 @@
+---
+
+- name: btrfs | install packages
+  aur:
+    use: yay
+    name:
+    - btrfs-progs
+    - grub-btrfs
+    - snapper
+    - snap-pac
+
+  register: task_result
+  until: task_result is success
+  retries: "{{ ansible_retries }}"
+  delay: "{{ ansible_delay }}"
+
+- name: btrfs | snapper configuration
+  become: true
+  template:
+    src: snapper.j2
+    dest: /etc/snapper/configs/root
+
+- name: btrfs | snap-pac configuration
+  become: true
+  template:
+    src: snappac.j2
+    dest: /etc/snap-pac/root.conf

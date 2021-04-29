@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  roles:
+    # Base
+    - { role: base, tags: ['base'] }
+    - { role: btrfs, tags: ['btrfs'] }
+    - { role: kernel, tags: ['kernel'] }
+    - { role: lightdm, tags: ['lightdm'] }
+    # User
+    - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: i3, tags: ['i3'] }

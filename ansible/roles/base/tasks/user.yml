@@ -1,0 +1,59 @@
+---
+
+# Create autologin group
+- name: user | create autologin group
+  become: true
+  group:
+    name: "autologin"
+    state: present
+
+# configure main user
+- name: user | ensure the user {{ user.name }} exists
+  become: true
+  user:
+    name: "{{ user.name }}"
+    shell: "{{ user.shell }}"
+    groups:
+        - "{{ user.group }}"
+        - autologin
+        - wheel
+        - network
+        - lock
+        - uucp
+    append: yes
+    system: no
+    createhome: yes
+    home: /home/{{ user.name }}
+
+- name: user | update password if defined "{{ user.name }}" with admin access
+  become: true
+  user:
+    name: "{{ user.name }}"
+    password: "{{ user.password | password_hash('sha512') }}"
+  when: user.password  is defined
+
+- name: user | ensure group {{ user.group }} exists
+  become: true
+  group:
+    name: "{{ user.group }}"
+    state: present
+
+# create user folders
+- name: user | folders
+  become: true
+  file:
+    path: /home/{{ user.name }}/{{ user.folders }}
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+    state: directory
+    mode: 0770
+    recurse: yes
+
+- name: user | sudo without asking a password
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^#.*%wheel ALL'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: '/usr/sbin/visudo -cf %s'

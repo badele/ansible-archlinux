@@ -1,0 +1,26 @@
+---
+
+- name: locale | ensure the locale {{ system.locale }} exists
+  become: true
+  lineinfile:
+    dest: /etc/locale.gen
+    create: yes
+    line: "{{item}} UTF-8"
+  with_items: "{{ system.locale }}"
+
+- name: locale | generate locale
+  become: true
+  command: "locale-gen"
+
+- name: locale | set timezone to {{ system.timezone }}
+  become: true
+  timezone:
+    name: "{{ system.timezone }}"
+
+- name: locale | set as default locale
+  become: true
+  command: "localectl set-locale {{ system.locale[0] }}"
+
+- name: locale | set console keyboard
+  become: true
+  command: "localectl set-keymap {{ system.keyboard }}"
