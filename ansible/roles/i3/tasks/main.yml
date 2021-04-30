@@ -39,6 +39,9 @@
   delay: "{{ ansible_delay }}"
   when: packages.install is defined
 
+- name: i3 | set xorg keyboard
+  become: true
+  command: "localectl set-x11-keymap --no-convert {{ system.keyboard }}"
 
 # Execute only if /home/{{ user.name }}/.config/i3/config file not exists
 - name: i3 | init some config files from wpg template

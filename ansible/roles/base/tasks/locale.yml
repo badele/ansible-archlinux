@@ -23,4 +23,4 @@
 
 - name: locale | set console keyboard
   become: true
-  command: "localectl set-keymap {{ system.keyboard }}"
+  command: "localectl set-keymap --no-convert {{ system.keyboard }}"

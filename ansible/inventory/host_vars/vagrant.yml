@@ -61,7 +61,3 @@ system:
     # mkinitcpio ( https://wiki.archlinux.org/index.php/mkinitcpio#BINARIES_and_FILES )
     kernel_binaries: "btrfsck"
     kernel_hooks: "base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck btrfs"
-
-    # mkinitcpio ( https://wiki.archlinux.org/index.php/mkinitcpio#BINARIES_and_FILES )
-    kernel_binaries: "btrfsck"
-    kernel_hooks: "base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck btrfs"

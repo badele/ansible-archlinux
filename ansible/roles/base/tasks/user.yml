@@ -42,18 +42,26 @@
 - name: user | folders
   become: true
   file:
-    path: /home/{{ user.name }}/{{ user.folders }}
+    path: /home/{{ user.name }}/{{ item }}
     owner: "{{ user.name }}"
     group: "{{ user.group }}"
     state: directory
     mode: 0770
     recurse: yes
+  with_items: "{{ user.folders }}"
+
 
 - name: user | sudo without asking a password
   become: true
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /etc/sudoers
     state: present
     regexp: '^#.*%wheel ALL'
     line: '%wheel ALL=(ALL) NOPASSWD: ALL'
     validate: '/usr/sbin/visudo -cf %s'
+
+# - name: user | set PATH in .profile (ex:used by i3)
+#   lineinfile:
+#     path: /home/{{ user.name }}/.profile
+#     line: 'export PATH=/home/{{ user.name }}/.local/bin/profile:$PATH'
+#     create: yes

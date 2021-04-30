@@ -2,7 +2,7 @@
 
 - name: kernel | configure mkinitcpio binaries
   become: true
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /etc/mkinitcpio.conf
     state: present
     regexp: "^BINARIES="
@@ -12,7 +12,7 @@
 
 - name: kernel | configure mkinitcpio hooks
   become: true
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /etc/mkinitcpio.conf
     state: present
     regexp: "^HOOKS="
