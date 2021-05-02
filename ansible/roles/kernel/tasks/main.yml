@@ -1,21 +1,4 @@
 ---
 
-- name: kernel | configure mkinitcpio binaries
-  become: true
-  lineinfile:
-    path: /etc/mkinitcpio.conf
-    state: present
-    regexp: "^BINARIES="
-    line: "BINARIES=({{system.kernel_binaries}})"
-  notify:
-    - update kernel
-
-- name: kernel | configure mkinitcpio hooks
-  become: true
-  lineinfile:
-    path: /etc/mkinitcpio.conf
-    state: present
-    regexp: "^HOOKS="
-    line: "HOOKS=({{system.kernel_hooks}})"
-  notify:
-    - update kernel
+- import_tasks: mkinitcpio.yml
+- import_tasks: modprobe.yml

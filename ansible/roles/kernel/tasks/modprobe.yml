@@ -1,0 +1,8 @@
+---
+
+- name: modprobe | define modprobe
+  become: true
+  blockinfile:
+    dest: /etc/modprobe.d/ansible.conf
+    block: "{{ system.modprobe }}"
+    create: yes

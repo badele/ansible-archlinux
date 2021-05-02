@@ -1,0 +1,45 @@
+---
+
+- name: mkinitcpio | configure mkinitcpio binaries
+  become: true
+  lineinfile:
+    path: /etc/mkinitcpio.conf
+    state: present
+    regexp: "^BINARIES="
+    line: "BINARIES=({{system.mkinitcpio.binaries}})"
+  notify:
+    - update kernel
+  when: system.mkinitcpio.binaries is defined
+
+- name: mkinitcpio | configure mkinitcpio modules
+  become: true
+  lineinfile:
+    path: /etc/mkinitcpio.conf
+    state: present
+    regexp: "^MODULES="
+    line: "MODULES=({{system.mkinitcpio.modules}})"
+  notify:
+    - update kernel
+  when: system.mkinitcpio.modules is defined
+
+- name: mkinitcpio | configure mkinitcpio hooks
+  become: true
+  lineinfile:
+    path: /etc/mkinitcpio.conf
+    state: present
+    regexp: "^HOOKS="
+    line: "HOOKS=({{system.mkinitcpio.hooks}})"
+  notify:
+    - update kernel
+  when: system.mkinitcpio.hooks is defined
+
+- name: mkinitcpio | configure mkinitcpio files
+  become: true
+  lineinfile:
+    path: /etc/mkinitcpio.conf
+    state: present
+    regexp: "^FILES="
+    line: "FILES=({{system.mkinitcpio.files}})"
+  notify:
+    - update kernel
+  when: system.mkinitcpio.files is defined
