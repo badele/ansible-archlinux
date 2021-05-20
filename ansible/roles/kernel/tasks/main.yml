@@ -2,3 +2,4 @@
 
 - import_tasks: mkinitcpio.yml
 - import_tasks: modprobe.yml
+- import_tasks: backlight.yml

@@ -17,6 +17,8 @@
         - "{{ user.group }}"
         - autologin
         - wheel
+        - video
+        - docker
         - network
         - lock
         - uucp
@@ -47,7 +49,7 @@
     group: "{{ user.group }}"
     state: directory
     mode: 0770
-    recurse: yes
+    recurse: false
   with_items: "{{ user.folders }}"
 
 

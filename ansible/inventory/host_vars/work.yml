@@ -1,0 +1,144 @@
+---
+
+# Ansible and host configuration
+ansible_user: badele
+ansible_connection: local
+
+# Custom ansible
+ansible_retries: 5
+ansible_delay: 1
+
+# Hostname
+hostname: badwork
+
+# User
+user:
+    name: badele
+    group: users
+    shell: /bin/zsh
+    folders:
+    - Images
+    - Vidéos
+    - private/projects
+    - work/projects
+    dotfiles: https://github.com/badele/dotfiles.git
+
+packages:
+  install:
+  # Base
+  - base-devel
+  - wget
+  - curl
+  - git
+  - yay
+  - rsync
+
+  # Neofetch
+  - neofetch
+  - w3m
+
+  # System
+  - inxi
+  - docker
+  - virtualbox-host-modules-arch
+  - virtualbox
+
+  # Audio/Video
+  - pulseaudio
+  - pulseaudio-alsa
+  - pavucontrol
+  - pulsemixer
+  - spotify
+  - mpv
+  - viewnior
+  - gimp
+  - inkscape
+
+  # Network
+  - networkmanager
+  - networkmanager-openvpn
+
+  # Xorg
+  - xf86-video-amdgpu
+  - xdotool
+  - mesa
+
+  # Shell
+  - zsh
+  - the_silver_searcher
+  - fd
+  - fzf
+  - navi
+  - ripgrep
+  - autojump
+
+  # Font
+  - nerd-fonts-noto-sans-mono
+  - gucharmap
+
+  # pass
+  - pass
+  - browserpass
+  - browserpass-chrome
+
+  # Performances tools
+  - lsof
+  - ltrace
+  - strace
+  - sysstat
+  - nmap
+  - mtr
+
+  # Security & VPN
+  - gnupg
+  - openvpn
+  - yubioath-desktop
+  - libu2f-host-git
+  - cracklib
+  - teleport-bin
+
+  # Python
+  - python
+  - python-pip
+
+  # Docker
+  - kubectl
+  - kubectx
+  - helm
+
+  # Neovim
+  - neovim
+  - uctags-git
+
+  # Ranger
+  - ranger
+  - ueberzug
+
+  # TUI tools
+  - wtfutil
+  - bashtop
+
+  # Dev tools
+  - visual-studio-code-bin
+  - shellcheck
+  - jq
+  remove:
+#  - cloud-init
+
+system:
+    locale:
+    - fr_FR.UTF-8
+    - en_US.UTF-8
+    timezone: Europe/Paris
+    keyboard: fr
+
+    # mkinitcpio ( https://wiki.archlinux.org/index.php/mkinitcpio#BINARIES_and_FILES )
+    mkinitcpio:
+      binaries: "btrfsck"
+      hooks: "base udev autodetect modconf block encrypt lvm2 filesystems fsck btrfs keyboard keymap consolefont"
+      modules: "amdgpu"
+      files: "/crypto_keyfile.bin"
+
+    modprobe: |
+      options amdgpu si_support=0
+      options amdgpu cik_support=0
