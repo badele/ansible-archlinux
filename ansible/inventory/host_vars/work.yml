@@ -17,6 +17,7 @@ user:
     group: users
     shell: /bin/zsh
     folders:
+    - wallpapers
     - Images
     - Vidéos
     - private/projects
@@ -50,7 +51,7 @@ packages:
   - pulsemixer
   - spotify
   - mpv
-  - viewnior
+  - nomacs
   - gimp
   - inkscape
 
@@ -68,6 +69,7 @@ packages:
   - the_silver_searcher
   - fd
   - fzf
+  - grc
   - navi
   - ripgrep
   - autojump
@@ -113,17 +115,20 @@ packages:
   # Ranger
   - ranger
   - ueberzug
+  - trash-cli
 
   # TUI tools
   - wtfutil
   - bashtop
+  - cava
+  - curseradio-git
 
   # Dev tools
   - visual-studio-code-bin
   - shellcheck
   - jq
   remove:
-#  - cloud-init
+  - libgnome-keyring
 
 system:
     locale:

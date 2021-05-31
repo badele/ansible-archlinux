@@ -6,5 +6,6 @@
     - { role: btrfs, tags: ['btrfs'] }
     - { role: kernel, tags: ['kernel'] }
     - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: taskwarrior, tags: ['taskwarrior'] }
     - { role: i3, tags: ['i3'] }
     - { role: lightdm, tags: ['lightdm'] }
