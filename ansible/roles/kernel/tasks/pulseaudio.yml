@@ -1,0 +1,9 @@
+---
+
+- name: pulseaudio | Set microphone
+  become: true
+  lineinfile:
+    path: /etc/pulse/default.pa
+    state: present
+    regexp: "load-module module-alsa-source device="
+    line: "load-module module-alsa-source device={{system.pulseaudio.alsa_mic_hardware}}"

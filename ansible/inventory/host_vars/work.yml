@@ -147,3 +147,6 @@ system:
     modprobe: |
       options amdgpu si_support=0
       options amdgpu cik_support=0
+
+    pulseaudio:
+      alsa_mic_hardware: 'hw:2,0'
