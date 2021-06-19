@@ -14,11 +14,16 @@
   retries: "{{ ansible_retries }}"
   delay: "{{ ansible_delay }}"
 
-- name: btrfs | snapper configuration
+- name: btrfs | check snapper config exists
   become: true
-  copy:
-    src: snapper.conf
-    dest: /etc/snapper/configs/root
+  stat:
+    path: /etc/snapper/configs/root
+  register: snapperconfig
+
+- name: btrfs | create snapper config
+  command: "snapper -c root create-config /"
+  become: true
+  when: not snapperconfig.stat.exists
 
 - name: btrfs | snap-pac configuration
   become: true
