@@ -44,6 +44,10 @@ packages:
   - virtualbox-host-modules-arch
   - virtualbox
 
+  # Disk
+  - bashmount
+  - udisks2
+
   # Audio/Video
   - pulseaudio
   - pulseaudio-alsa
@@ -122,10 +126,14 @@ packages:
   - bashtop
   - cava
   - curseradio-git
+  - lazygit
+  - lazydocker
 
   # Dev tools
   - visual-studio-code-bin
+  - asdf-vm
   - shellcheck
+  - subnetcalc
   - jq
   remove:
   - libgnome-keyring

@@ -23,7 +23,7 @@ cd /tmp/
 git clone https://github.com/badele/ansible-archlinux.git
 cd ansible-archlinux/ansible
 ansible-galaxy install -r galaxy_requirements.yml
-ansible-playbook --limit work dev-i3.yml [--tags tag1,tag2]
+ansible-playbook --limit work dev-i3.yml [--tags tag1,tag2] [--check] [--diff]
 
 # After first run
 # Import you GPG with ssh authentification support
@@ -44,9 +44,11 @@ update-my-computer
     - [x] move all `ZSH` configuration files to `.config/zsh/` with `ZDOTDIR=$HOME/.config/zsh` in the `~/.zshenv`
     - [x] zinit (alias, bindkey, plugins, etc ...), ZSH customization
     - [x] powerlevel10 prompt
+    - [x] `grc` colored command outputs
     - [x] `navi` command cheatsheet
     - [x] `fzf` command line fuzzy finder
     - [x] `fd` fast find
+    - [w] `up` realtime pipe
     - [x] `ripgrep` fast grep
     - [x] `autojump` cli - go to last used folders with `j` command
     - [x] `neofetch` cli - a command-line system information
@@ -56,63 +58,62 @@ update-my-computer
     - [x] `i3-gaps`
     - [x] `i3-scrot`
     - [x] `polybar`
-    - [x] `wpgtk` (Set color scheme from image), generate some files from template (i3, polybar, termite, etc ..)
+    - [x] `dunst` notification sytem
+    - [x] `gtk-engine-murrine`, `wpgtk`, `colorz` (Set color scheme from image), generate some files from template (i3, polybar, termite, etc ..)
     - [x] `nerd-fonts-noto-sans-mono` glyph fonts
     - [x] `rofi` app launcher
-      [x] `papirus-icon-theme` icon for rofi
-  - Terminal
-    - [x] files managers
-      - [_] `trash-cli` cli - move files to trash
-  - [_] editors
-    - [_] `neovim`
-    - [_] `vimplug`
+    - [x] `papirus-icon-theme` icon for rofi
+    - [x] `arandr`, `autorandr` monitorlayout and auto layout
 
-  - [_] TUI
-    - [_] `ranger` tui - files manager
-    - [_] `wtfutil`
-    - [_] `bashtop`
+  - [w] editors
+
+  - [_] Terminal / TUI
+    - [w] `neovim` editor
+      - [w] `vimplug`
+    - [x] `ranger` tui - files manager
+      - [_] `trash-cli` cli - move files to trash
+    - [x] `wtfutil`
+    - [x] `bashtop`
+    - [x] `lazygit`, `tig`
+    - [x] `lazydocker`
+    - [x] `cava`
 
   | [_] miscs
-    - [_] `peaclock`
-    - [_] `newboat`
-    - [_] `taskwarrior`
-    - [_] `timewarrior`
-    - [_] `bashmount`
+    - [_] `rokeys` show keys shorcuts
+    - [x] `peaclock`
+    - [_] `newsboat`
+    - [x] `taskwarrior`
+    - [x] `bashmount`
     - [_] `curseradio`
-    - [_] `cava`
     - [_] `bat`
     - [_] `mps-youtube`
-    - [_] `spotify-tui`
-    - [_] `lazygit`
-    - [_] `lazydocker`
     - [_] `calcurse`
-    - [_] `ipcalc`
     - [_] `pydoro`
     - [_] `bmenu` system tools
     - [_] `simplescreenrecorder`
     - [x] `gucharmap`
-    - [_] `pywal-git`, `colorz`, `wpgtk`
-    - [_] `pass`, `browserpass` `browserpass-chrome`
+    - [x] `pass`, `browserpass` `browserpass-chrome` **Note:** In chrome, use `/home/badele/.local/bin/launch-gpg` bin path 
     - [_] `direnv`
     - [_] `mocp`
-    - [_] `imv`, `viewnior` image viewver
+    - [_] `nomacs`, `imv`, `viewnior` image viewver
     - [_] `mpv` video player
     - [_] `oz/tz`
+    - [_] `automount`
     - [_] activate bitmap font => rm /etc/fonts/conf.d/70-no-bitmaps.conf et vérifier affichage fonte bitmap
   - [_] dev
-    - [_] Visual Studio Code
-    - [_] `shellcheck`
+    - [x] Visual Studio Code
+    - [x] `shellcheck`
     - [_] `bats` `shunit2`
-    - [_] `asdf` Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more
-    - [_] `diagrams`
+    - [x] `asdf` Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more
 
   - [_] tools
+    - [x] `subnetcalc`
+    - [x] `inxi -F` hardware information
     - [_] custom scripts
       - [x] `set-color-scheme-from-image` custom script for define color scheme from image filename
-      - [x] `inxi -F` hardware information
+      - [x] `mixer` Update volume and send notification
       - [_] https://github.com/ko1nksm/ghostplay
       - [_] `aha` convert colored terminal output to HTML
-      - [_] `subnetcalc`
       - [_] n8n (domotique)
       - [_] bpytop
       - [_] googler
