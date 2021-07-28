@@ -31,6 +31,9 @@ packages:
   - neofetch
   - pulseaudio
   - pulseaudio-alsa
+  # Network
+  - networkmanager
+  - networkmanager-openvpn
   # Shell
   - zsh
   - fd
@@ -44,9 +47,17 @@ packages:
   - strace
   - sysstat
   - nmap
+  # Security & VPN
+  - gnupg
+  - openvpn
+  - yubioath-desktop
+  - libu2f-host-git
+  - cracklib ??
+  - perl-text-unaccent ?? 
   # Editor
   - neovim
   # tools
+  - jq
   - ranger
   remove:
 #  - cloud-init

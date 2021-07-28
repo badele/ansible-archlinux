@@ -11,24 +11,25 @@
     - xterm
     - polkit-gnome
     - network-manager-applet
-    - xfce4-power-manager
     - xautolock
     - dunst
     - libnotify
     - picom
-    - clipit
     # Terminal
     - termite
     # i3
     - i3-gaps
     - i3lock
+    - xtrlock
     - i3exit
     - i3-scrot
+    - gpick
     - polybar
     - rofi
     - papirus-icon-theme
-    - nerd-fonts-noto-sans-mono
+    - autorandr
     # Themes
+    - termpalette-git
     - wpgtk-git
     - colorz
     # Misc

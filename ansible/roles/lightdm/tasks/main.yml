@@ -20,7 +20,7 @@
 
 - name: lightdm | enable ligthdm service
   become: true
-  service:
+  systemd:
     name: lightdm
     enabled: yes
     state: started
