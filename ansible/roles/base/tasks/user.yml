@@ -7,25 +7,36 @@
     name: "autologin"
     state: present
 
+# Get group
+- name: user | groups user exists
+  shell: /usr/bin/getent group | awk -F":" '{print $1}'
+  register: etc_groups
+
+
 # configure main user
 - name: user | ensure the user {{ user.name }} exists
   become: true
   user:
     name: "{{ user.name }}"
     shell: "{{ user.shell }}"
-    groups:
-        - "{{ user.group }}"
-        - autologin
-        - wheel
-        - video
-        - docker
-        - network
-        - lock
-        - uucp
     append: yes
     system: no
     createhome: yes
     home: /home/{{ user.name }}
+
+- name: user | add secondary groups
+  user: name="{{ user.name }}" groups="{{item}}" append=yes
+  when: '"{{item}}" in etc_groups.stdout_lines'
+  with_items: 
+    - "{{ user.group }}"
+    - autologin
+    - wheel
+    - video
+    - docker
+    - network
+    - lock
+    - uucp
+
 
 - name: user | update password if defined "{{ user.name }}" with admin access
   become: true
