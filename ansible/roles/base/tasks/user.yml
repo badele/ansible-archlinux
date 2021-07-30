@@ -19,7 +19,6 @@
   user:
     name: "{{ user.name }}"
     shell: "{{ user.shell }}"
-    append: yes
     system: no
     createhome: yes
     home: /home/{{ user.name }}
