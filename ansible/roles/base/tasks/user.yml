@@ -24,8 +24,9 @@
     home: /home/{{ user.name }}
 
 - name: user | add secondary groups
+  become: true
   user: name="{{ user.name }}" groups="{{item}}" append=yes
-  when: '"{{item}}" in etc_groups.stdout_lines'
+  when: item in etc_groups.stdout_lines
   with_items: 
     - "{{ user.group }}"
     - autologin
