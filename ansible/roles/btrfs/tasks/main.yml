@@ -28,5 +28,5 @@
 - name: btrfs | snap-pac configuration
   become: true
   copy:
-    src: snappac.conf
-    dest: /etc/snap-pac/root.conf
+    src: snap-pac.ini
+    dest: /etc/snap-pac.ini
