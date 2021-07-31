@@ -23,6 +23,7 @@
     - xtrlock
     - i3exit
     - i3-scrot
+    - feh
     - gpick
     - polybar
     - rofi
