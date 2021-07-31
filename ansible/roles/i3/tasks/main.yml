@@ -46,5 +46,5 @@
   command: "localectl set-x11-keymap --no-convert {{ system.keyboard }}"
 
 # Execute only if /home/{{ user.name }}/.config/i3/config file not exists
-- name: i3 | init some config files from wpg template
-  command: /home/{{ user.name }}/.local/bin/set-color-scheme-from-image creates=/home/{{ user.name }}/.config/i3/config
+#- name: i3 | init some config files from wpg template
+#  command: /home/{{ user.name }}/.local/bin/set-color-scheme-from-image creates=/home/{{ user.name }}/.config/i3/config
