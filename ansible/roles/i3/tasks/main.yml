@@ -35,6 +35,7 @@
     - colorz
     # Misc
     - playerctl
+    - upower
 
   register: task_result
   until: task_result is success
