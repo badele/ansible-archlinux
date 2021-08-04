@@ -21,14 +21,17 @@
     - i3-gaps
     - i3lock
     - xtrlock
+    - autorandr
     - i3exit
     - i3-scrot
     - feh
     - gpick
     - polybar
+    # Rofi
     - rofi
+    - rofi-calc
     - papirus-icon-theme
-    - autorandr
+
     # Themes
     - termpalette-git
     - wpgtk-git
