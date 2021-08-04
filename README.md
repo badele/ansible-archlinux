@@ -25,7 +25,9 @@ cd ansible-archlinux/ansible
 ansible-galaxy install -r galaxy_requirements.yml
 ansible-playbook --limit work dev-i3.yml [--tags tag1,tag2] [--check] [--diff]
 
-# After first run
+# After first run, logon in a shell (ZSH plugins installing automatically)
+set-color-scheme-from-image
+
 # Import you GPG with ssh authentification support
 update-my-computer
 ```
@@ -45,6 +47,7 @@ update-my-computer
     - [x] zinit (alias, bindkey, plugins, etc ...), ZSH customization
     - [x] powerlevel10 prompt
     - [x] `grc` colored command outputs
+    - [x] `bat` colored cat clone
     - [x] `navi` command cheatsheet
     - [x] `fzf` command line fuzzy finder
     - [x] `fd` fast find
@@ -85,7 +88,6 @@ update-my-computer
     - [x] `taskwarrior`
     - [x] `bashmount`
     - [_] `curseradio`
-    - [_] `bat`
     - [_] `mps-youtube`
     - [_] `calcurse`
     - [_] `pydoro`
