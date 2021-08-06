@@ -1,0 +1,8 @@
+---
+
+- name: vars | set wireless vars
+  become: true
+  blockinfile:
+    dest: /etc/environment
+    block: "{{ system.vars }}"
+    create: yes

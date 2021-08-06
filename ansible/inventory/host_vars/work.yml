@@ -152,6 +152,9 @@ system:
     timezone: Europe/Paris
     keyboard: fr
 
+    vars: |
+      WIRELESS=wlp3s0
+
     # mkinitcpio ( https://wiki.archlinux.org/index.php/mkinitcpio#BINARIES_and_FILES )
     mkinitcpio:
       binaries: "btrfsck"

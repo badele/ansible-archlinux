@@ -1,5 +1,6 @@
 ---
 
 - import_tasks: user.yml    # Need by yay (yay must be run with a simple user)
+- import_tasks: vars.yml
 - import_tasks: package.yml
 - import_tasks: locale.yml
