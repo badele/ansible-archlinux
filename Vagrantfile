@@ -3,6 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "badele/ansiblearch"
+  config.vm.box_version = "2021.10.01"
   config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".git/"
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -14,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible_local" do |ansible|
 
     # Verbose ansible output
-    ansible.verbose = "v"
+    ansible.verbose = "vvv"
 
     # set host for ansible scope (only use this host, it use --limit ansible option)
     config.vm.define "vagrant"

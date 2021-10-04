@@ -11,6 +11,8 @@ We use a [archlinux-auto-install(archlinux LUKS+BTRFS+Ansible installation in UE
 git clone git@github.com:badele/ansible-archlinux.git
 cd ansible-archlinux
 vagrant up --provision
+
+# Enter vagrant LUKS password (warning keyboard disposition)
 ```
 
 ## Host
@@ -37,7 +39,7 @@ update-my-computer
 - [_] System
   - [x] LUKS
   - [x] Btrfs
-    - [_] `snapper`, `snap-pac`
+    - [x] `snapper`, `snap-pac`
   - [x] `yay`
   - [x] gpg ssh agent
 
@@ -48,6 +50,7 @@ update-my-computer
     - [x] powerlevel10 prompt
     - [x] `grc` colored command outputs
     - [x] `bat` colored cat clone
+    - [x] `exa` ls alternative
     - [x] `navi` command cheatsheet
     - [x] `fzf` command line fuzzy finder
     - [x] `fd` fast find
@@ -95,10 +98,10 @@ update-my-computer
     - [_] `simplescreenrecorder`
     - [x] `gucharmap`
     - [x] `pass`, `browserpass` `browserpass-chrome` **Note:** In chrome, use `/home/badele/.local/bin/launch-gpg` bin path 
-    - [_] `direnv`
+    - [x] `direnv`
     - [_] `mocp`
-    - [_] `nomacs`, `imv`, `viewnior` image viewver
-    - [_] `mpv` video player
+    - [x] `nomacs`, image viewver
+    - [x] `mpv` video player
     - [_] `oz/tz`
     - [_] `automount`
     - [_] activate bitmap font => rm /etc/fonts/conf.d/70-no-bitmaps.conf et vérifier affichage fonte bitmap

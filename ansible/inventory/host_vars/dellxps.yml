@@ -72,6 +72,9 @@ packages:
   # Shell
   - zsh
   - the_silver_searcher
+  - ripgrep
+  - bat
+  - exa
   - fd
   - fzf
   - grc

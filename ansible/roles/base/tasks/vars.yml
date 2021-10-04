@@ -1,8 +1,9 @@
 ---
 
-- name: vars | set wireless vars
+- name: vars | set environment vars
   become: true
   blockinfile:
     dest: /etc/environment
     block: "{{ system.vars }}"
     create: yes
+  when: system.vars is defined
