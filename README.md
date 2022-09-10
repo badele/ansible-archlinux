@@ -28,7 +28,7 @@ ansible-galaxy install -r galaxy_requirements.yml
 ansible-playbook --limit work dev-i3.yml [--tags tag1,tag2] [--check] [--diff]
 
 # After first run, logon in a shell (ZSH plugins installing automatically)
-set-color-scheme-from-image
+download_wallpapers
 
 # Import you GPG with ssh authentification support
 update-my-computer
@@ -62,10 +62,10 @@ update-my-computer
 - [x] Window Manager
   - i3
     - [x] `i3-gaps`
-    - [x] `i3-scrot`
+    - [x] `flameshot`
     - [x] `polybar`
     - [x] `dunst` notification sytem
-    - [x] `gtk-engine-murrine`, `wpgtk`, `colorz` (Set color scheme from image), generate some files from template (i3, polybar, termite, etc ..)
+    - [x] `gtk-engine-murrine`, `wpgtk`, `colorz` (Set color scheme from image), generate some files from template (i3, polybar, alacritty, etc ..)
     - [x] `nerd-fonts-noto-sans-mono` glyph fonts
     - [x] `rofi` app launcher
     - [x] `papirus-icon-theme` icon for rofi
@@ -108,6 +108,7 @@ update-my-computer
   - [_] dev
     - [x] Visual Studio Code
     - [x] `shellcheck`
+    - [x] difftastic
     - [_] `bats` `shunit2`
     - [x] `asdf` Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more
 

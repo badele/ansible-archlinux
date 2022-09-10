@@ -127,16 +127,13 @@ packages:
   - trash-cli
 
   # TUI tools
-  - wtfutil
-  - bashtop
-  - cava
-  - curseradio-git
   - lazygit
   - lazydocker
 
   # Dev tools
   - visual-studio-code-bin
   - asdf-vm
+  - difftastic
   - shellcheck
   - subnetcalc
   - tcpping

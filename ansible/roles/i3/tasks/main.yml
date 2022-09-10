@@ -23,7 +23,7 @@
     - xtrlock
     - autorandr
     - i3exit
-    - i3-scrot
+    - flameshot
     - feh
     - gpick
     - polybar
